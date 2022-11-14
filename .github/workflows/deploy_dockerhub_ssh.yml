@@ -59,4 +59,4 @@ jobs:
           docker pull desavil/dockerhub-actions
           docker stop dev
           docker rm dev
-          docker run --name=dev --restart=always -p 80:80/tcp -d desavil/dockerhub-actions
+          docker run --name=dev --restart=always --network="bridge" -p 80:80/tcp -d desavil/dockerhub-actions
