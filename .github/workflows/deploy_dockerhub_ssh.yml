@@ -55,4 +55,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        script: docker run -d desavil/dockerhub-actions
+        script: |
+          docker pull desavil/dockerhub-actions
+          docker stop dev
+          docker rm dev
+          docker run --name=dev -p -d desavil/dockerhub-actions
