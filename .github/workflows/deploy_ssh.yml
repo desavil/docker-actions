@@ -45,6 +45,7 @@ jobs:
 
   # SSH
   build:
+    needs: push_to_registry
     name: Build
     runs-on: ubuntu-latest
     steps:
